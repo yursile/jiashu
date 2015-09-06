@@ -1,0 +1,123 @@
+<html><head><title>命里相逢</title><meta name=description content="战火中交织的中日家书"><meta charset=utf-8><link rel=stylesheet type=text/css href="../style/main.css"><script type=text/javascript src=../lib/jquery.min.js></script><body><div class=wrapper><div class=container><div class=start></div></div><div class=main><div class=detail><ul><li class="item f1"><a href=javascript:void(0)><img src=../image/title-0.png class=img-title alt=""> <img src=../image/active.png class=chosed alt=""></a></li><li class=item><a href=""><img src=../image/title-1.png class=img-title alt=""> <img src=../image/active.png class=chosed alt=""> <img src=../image/active-2.png class=img-active alt=""></a></li><li class=item><a href=""><img src=../image/title-1.png class=img-title alt=""> <img src=../image/active.png class=chosed alt=""> <img src=../image/active-2.png class=img-active alt=""></a></li><li class=item><a href=""><img src=../image/title-1.png class=img-title alt=""> <img src=../image/active.png class=chosed alt=""> <img src=../image/active-2.png class=img-active alt=""></a></li><li class=item><a href=""><img src=../image/title-1.png class=img-title alt=""> <img src=../image/active.png class=chosed alt=""> <img src=../image/active-2.png class=img-active alt=""></a></li><li class=item><a href=""><img src=../image/title-1.png class=img-title alt=""> <img src=../image/active.png class=chosed alt=""> <img src=../image/active-2.png class=img-active alt=""></a></li><li class="item last"><a href=""><img src=../image/title-6.png class=img-title alt=""> <img src=../image/active.png class=chosed alt=""> <img src=../image/active-2.png class=img-active alt=""></a></li></ul></div></div><div class=endContainer><div class=end></div></div></div><script type=text/javascript>$.each($(".item"),function(i,v){
+            $(v).attr("data-num",i);
+        });
+
+        $(".item").delegate("a","click",function(e){
+            e.preventDefault();
+            var oldActiveNum = $(".active").attr("data-num");
+            var now = $(this).parent();
+           var num = parseInt(now.attr("data-num"));
+           next(now,num);
+        });
+
+
+        $(".start").click(function(){
+            start();
+        });
+
+        $(".end").click(function(){
+            end();
+        });
+
+
+
+
+        var tp = 0.4709507;
+        var step = 0.3301056;
+        function next(now,num){
+            if(num ==0){
+                $(".container").animate({
+                    top:"0"
+                },1000);
+                $(".main").animate({
+                    top:"0"
+                },1000);
+                return ;
+            }else  if(num==1){
+                $(".detail").animate({
+                    top:"0",
+                    left:"0"
+                },1000)
+            }else if(num == 6){
+                 $(".endContainer").animate({
+                    top:"-200%"
+                },1000);
+                $(".main").animate({
+                    top:"-200%"
+                },1000);
+            }
+            else {
+                if(num%2==0){
+                     $(".detail").animate({
+                        top:transToP((-tp)-(num-2)*step),
+                        left:"-28.888888%"
+                    },1000)
+                 }else{
+                    $(".detail").animate({
+                        top:transToP((-tp)-(num-2)*step),
+                        left:"0"
+                    },1000)
+                 }  
+            }
+
+            $(".active").removeClass("active");
+            $(".item[data-num='"+num+"']").addClass("active");
+        }
+
+
+        function prev(num){
+            if(num ==0){
+                $(".container").animate({
+                top:"0"
+                },1000);
+                $(".main").animate({
+                    top:"0"
+                },1000);
+                 // $(".f1").next().addClass("active");
+            }   
+             if(num==1){
+                $(".detail").animate({
+                    top:transToP(0),
+                    left:"0"
+                },1000)
+            }else {
+                if(num%2==0){
+                     $(".detail").animate({
+                        top:transToP((-tp)-(num-2)*step),
+                        left:"0"
+                    },1000)
+                 }else{
+                    $(".detail").animate({
+                        top:transToP((-tp)-(num-2)*step),
+                        left:"-28.888888%"
+                    },1000)
+                 }
+                
+            }
+        }
+
+        function start(){
+            $(".active").removeClass("active");
+            $(".container").animate({
+                top:"-100%"
+            },1000);
+            $(".main").animate({
+                top:"-100%"
+            },1000);
+            $(".f1").next().addClass("active");
+        }
+
+        function end(){
+            $(".active").removeClass("active");
+            $(".endcontainer").animate({
+                top:"-200%"
+            },1000);
+            $(".main").animate({
+                top:"-200%"
+            },1000);
+           
+        }
+
+        function transToP(num){
+            return num*100+"%";
+        }</script>

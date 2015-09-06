@@ -1,0 +1,144 @@
+@import (reference) "base.less";
+@env:release; //编译模式：release或debug
+
+/* 导航栏 */
+.nav:extend(.base-nav){
+    // 编译模式为debug时采用该样式
+    & when (@env=debug){
+        .base-debug();
+    }
+}
+
+@max:100%;
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width:@max;
+	height:@max;
+	position: relative;
+	background:url("../image/mainbg.png") no-repeat;
+	background-size: cover;
+}
+.start{
+	width:@max;
+	height:(1136-896)/1136*@max;
+	position: absolute;
+	background: url("../image/start.png") no-repeat;
+	background-size: cover;
+	top:896/1136*@max;
+}
+.main{
+	width:@max;
+	height:@max;
+	position: relative;
+	overflow: hidden;
+	background: url("../image/detailbg.png");
+	background-size: cover;
+}
+.detail{
+	height: 2700/1136*@max;
+	width: 900/640*@max;
+	background: url("../image/rotate.png") no-repeat;
+	background-size: cover;
+	position: relative;
+	
+}
+.item{
+	height: 375/2700*@max;
+	position: relative;
+	width: 640/900*@max;
+}
+.f1{
+	height: 535/2700*@max;
+}
+.f1 a{
+	display: block;
+	width:300/640*@max;
+	height:150/585*@max;
+	// height: 1/3*@max;
+	position: absolute;
+	left:300/640*@max;
+}
+li a{
+	display: block;
+	width:300/640*@max;
+	 height:150/425*@max;
+	// height: 1/3*@max;
+	position: absolute;
+	left:300/640*@max;
+}
+a .img-title{
+	position: absolute;
+	top:1/3*@max;
+	display: inline-block;
+	height: 1/3*@max;
+	width:210/300*@max;
+}
+li:nth-child(even) .img-title{
+	left:1/3*@max;
+}
+
+li:nth-child(even) .img-active{
+	left:1/3*@max;
+}
+
+
+.wrapper{
+	height: @max;
+	width:@max;
+	overflow: hidden;
+	position: relative;
+}
+.chosed{
+	top:1/3*@max;
+	height: 1/3*@max;
+	position: absolute;
+	left:135/175*@max;
+	display: none;
+}
+.item:nth-child(even) .chosed{
+	left:40/300*@max;
+}
+
+.introduction{
+	width:210/300*@max;
+}
+.active .chosed{
+	display: block;
+}
+.active .img-title{
+	display: none;
+}
+
+li .img-active{
+	display:none;
+	position: absolute;
+	width:210/300*@max;
+}
+
+.active a .img-active{
+	display: inline-block;
+}
+.last{
+	margin-top:135/900*@max;
+}
+
+.endContainer{
+	width:@max;
+	height:@max;
+	position: relative;
+	background:url("../image/detailbg.png") no-repeat;
+	background-size: cover;
+}
+.end{
+	position: absolute;
+	left:100/636*@max;
+	height:134/1136*@max;
+	width:265/640*@max;
+	background: url("../image/end-all2.png") 29.4% 0 no-repeat;
+	// background-position: 105/640*@max 0;
+	// background-position: 29.4% 0;
+	background-size: 640/256*@max 1136/134*@max;
+}
