@@ -113,9 +113,10 @@ li .img-active {
 }
 .end {
   position: absolute;
-  left: 15.72327044%;
+  left: 16.40625%;
   height: 11.79577465%;
-  width: 41.40625%;
-  background: url("../image/end-all2.png") 29.4% 0 no-repeat;
-  background-size: 250% 847.76119403%;
+  width: 41.25%;
+  background: url("../image/end-all2.png") no-repeat;
+  background-position: 27.92553191% 0;
+  background-size: 242.42424242% 847.76119403%;
 }
